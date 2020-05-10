@@ -1,4 +1,5 @@
 node_modules
 yarn-error.log
+webauthn_keys_db.json
 /external
 /dist
