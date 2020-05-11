@@ -192,6 +192,11 @@ async function pushTransaction() {
     });
 
     debug('Transaction push response %O', response);
+
+    const tx = response.processed;
+    console.log(
+      `Transaction ${tx.id} (potentially at block ${tx.block_num} or nearby) has been pushed to the API node.`,
+    );
   } catch (error) {
     debug('Push error occurred %O', error);
     pushError = error;

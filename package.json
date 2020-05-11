@@ -21,12 +21,10 @@
     "cbor": "^5.0.1",
     "debug": "^4.1.1",
     "elliptic": "^6.5.2",
-    "eosjs": "file:external/eosjs",
+    "eosjs": "^21.0.1-rc2",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
-    "open": "^7.0.0",
-    "ts-node": "^8.0.3",
-    "typescript": "^3.3.3333"
+    "open": "^7.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.4.2",
@@ -35,6 +33,8 @@
     "eslint": "^5.15.1",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
   }
 }

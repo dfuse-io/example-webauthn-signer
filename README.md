@@ -15,21 +15,37 @@ not the case, you can re-generate everything with:
 
 ### Workflow
 
-Start with the following calls
+Start with installing dependencies, noteworthy, this examples depends on eosjs
+version `21.0.1-rc2`:
 
-    ./prepare.sh
-    yarn generate
+```bash
+yarn install
+```
 
-This install all the required dependencies as well as opening a Browser that
+Once you have the dependencies installed on your local workstation, you will
+need to generate a proper WebAuthN key that can be later attached to an account.
+
+For this, you use the `yarn generate` command, this opens up a Browser that
 will generate a new valid EOSIO WebAuthN public key. The private key is kept
 in the Browser paired with a unique identifier for when we will signing something.
+The key and everything used to generate it and to later on sign transaction is stored
+in a JSON file in the same directory used to run the script. You will need this file
+later when we will send a transfer signed with the generated WebAuthN key. Run this
+command to generate a key, you will need to have a USB Security Key plug-in your computer
+for the example to work properly:
+
+```bash
+yarn generate
+```
 
 Once you have the public key, it's written on disk, re-generating it overwrite
 the current one.
 
 To sign a transfer, use:
 
-    yarn transfer
+```bash
+yarn transfer
+```
 
 Which generates the required transaction data to sign, open a Browser
 with a given URL containing information about the transaction to sign,
@@ -38,7 +54,7 @@ all that to our local server that complete the transaction pushing
 on our local node.
 
 All most configuration values can be changed by specifying the corresponding
-environment variable of the variable, check [server.ts (Line 12 through 18)](./server.ts#L12-18)
+environment variable of the variable, check [src/server.ts (Line 12 through 18)](./src/server.ts#L12-18)
 for variables that can be overridden. Here the list for a `yarn transfer`:
 
 ```bash
