@@ -9,13 +9,13 @@ import fetch from 'node-fetch';
 import { TextEncoder, TextDecoder } from 'util';
 import debugFactory from 'debug';
 
-const EOSIO_API_NODE_URL = 'http://localhost:9898';
-const EOSIO_FROM_ACCOUNT = 'maouehmaoueh';
-const EOSIO_TO_ACCOUNT = 'eosio';
-const EOSIO_QUANTITY = '0.0001 EOS';
-const EOSIO_ACTOR_ACCOUNT = EOSIO_FROM_ACCOUNT;
-const EOSIO_ACTOR_PERMISSION = 'active';
-const KEYS_DB_FILE_PATH = './webauthn_keys_db.json';
+const EOSIO_API_NODE_URL = process.env['EOSIO_API_NODE_URL'] || 'https://jungle.eosn.io';
+const EOSIO_FROM_ACCOUNT = process.env['EOSIO_FROM_ACCOUNT'] || 'maouehmaoueh';
+const EOSIO_TO_ACCOUNT = process.env['EOSIO_TO_ACCOUNT'] || 'eosio';
+const EOSIO_QUANTITY = process.env['EOSIO_QUANTITY'] || '0.0001 EOS';
+const EOSIO_ACTOR_ACCOUNT = process.env['EOSIO_ACTOR_ACCOUNT'] || EOSIO_FROM_ACCOUNT;
+const EOSIO_ACTOR_PERMISSION = process.env['EOSIO_ACTOR_PERMISSION'] || 'active';
+const KEYS_DB_FILE_PATH = process.env['KEYS_DB_FILE_PATH'] || './webauthn_keys_db.json';
 
 const debug = debugFactory('webauthn:server');
 

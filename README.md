@@ -37,8 +37,20 @@ perform the signing of the transaction in the Browser and returns
 all that to our local server that complete the transaction pushing
 on our local node.
 
-All configurations are hard-coded right now, edit the source to change
-them.
+All most configuration values can be changed by specifying the corresponding
+environment variable of the variable, check [server.ts (Line 12 through 18)](./server.ts#L12-18)
+for variables that can be overridden. Here the list for a `yarn transfer`:
+
+```bash
+    EOSIO_API_NODE_URL="https://jungle.eosn.io" \
+    EOSIO_FROM_ACCOUNT="maouehmaoueh" \
+    EOSIO_TO_ACCOUNT="eosio" \
+    EOSIO_QUANTITY="0.0001 EOS" \
+    EOSIO_ACTOR_ACCOUNT="maouehmaoueh" \
+    EOSIO_ACTOR_PERMISSION="active" \
+    KEYS_DB_FILE_PATH="./webauthn_keys_db.json" \
+    yarn transfer
+```
 
 Hopefully, all works out of the box, but nothing is less sure than
 that!

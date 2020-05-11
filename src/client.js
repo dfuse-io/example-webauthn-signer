@@ -33,7 +33,7 @@ async function transfer() {
   if (result.error) {
     logError('Unable to correctly push transaction');
   } else {
-    appendMessage('Successuflly pushed transaction!');
+    appendMessage('Succesfully pushed transaction!');
     closeTab(2500);
   }
 }
