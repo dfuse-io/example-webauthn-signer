@@ -43,7 +43,7 @@ async function generate() {
 		appendMessage('Generating key...');
 		const { rawId, response: credentialsResponse } = await navigator.credentials.create({
 			publicKey: {
-				rp: { id: 'stepd.loca.lt', name: 'dfuse' },
+				rp: { id: 'dattestation.loca.lt', name: 'dfuse' },
 				user: {
 					id: new Uint8Array(16),
 					name: 'dev@dfuse.io',
@@ -63,7 +63,7 @@ async function generate() {
 		});
 
 		const keyResponse = await postData('/add_key', {
-			relayPartyId: 'stepd.loca.lt',
+			relayPartyId: 'dattestation.loca.lt',
 			rawId: byteArrayToHex(rawId),
 			attestationObject: byteArrayToHex(credentialsResponse.attestationObject),
 			clientDataJSON: byteArrayToHex(credentialsResponse.clientDataJSON),
@@ -104,11 +104,11 @@ function logError(message, error) {
 }
 
 async function getData(path) {
-	return await fetch(`https://stepd.loca.lt${path}`).then(response => response.json());
+	return await fetch(`https://dattestation.loca.lt${path}`).then(response => response.json());
 }
 
 async function postData(path, data = {}) {
-	const response = await fetch(`https://stepd.loca.lt${path}`, {
+	const response = await fetch(`https://dattestation.loca.lt${path}`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(data),

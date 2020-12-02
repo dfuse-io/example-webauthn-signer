@@ -10,12 +10,12 @@ import fetch from 'node-fetch';
 import { TextEncoder, TextDecoder } from 'util';
 import debugFactory from 'debug';
 
-const EOSIO_API_NODE_URL = process.env['EOSIO_API_NODE_URL'] || 'http://localhost:8888';
-const EOSIO_FROM_ACCOUNT = process.env['EOSIO_FROM_ACCOUNT'] || 'stepd4';
-const EOSIO_TO_ACCOUNT = process.env['EOSIO_TO_ACCOUNT'] || 'eosio';
-const EOSIO_QUANTITY = process.env['EOSIO_QUANTITY'] || '0.0021 EOS';
-const EOSIO_ACTOR_ACCOUNT = process.env['EOSIO_ACTOR_ACCOUNT'] || EOSIO_FROM_ACCOUNT;
-const EOSIO_ACTOR_PERMISSION = process.env['EOSIO_ACTOR_PERMISSION'] || 'active';
+const EOSIO_API_NODE_URL = process.env['EOSIO_API_NODE_URL']                   || 'https://api.jungle3.alohaeos.com';
+const EOSIO_DATTESTATION_ATTESTOR = process.env['EOSIO_DATTESTATION_ATTESTOR'] || 'bigpharma123';
+const EOSIO_DATTESTATION_HASH     = process.env['EOSIO_DATTESTATION_HASH']     || 'bda45402c9772844e9c46ba537203389dc3f1ab5349168343a851986e14b4321';
+
+const EOSIO_ACTOR_ACCOUNT = process.env['EOSIO_ACTOR_ACCOUNT'] || EOSIO_DATTESTATION_ATTESTOR;
+const EOSIO_ACTOR_PERMISSION = process.env['EOSIO_ACTOR_PERMISSION'] || 'attest';
 const KEYS_DB_FILE_PATH = process.env['KEYS_DB_FILE_PATH'] || './webauthn_keys_db.json';
 
 const debug = debugFactory('webauthn:server');
@@ -169,13 +169,11 @@ async function pushTransaction() {
 		const data = {
 			actions: [
 				{
-					account: 'eosio.token',
-					name: 'transfer',
+					account: 'dattestation',
+					name: 'emit',
 					data: {
-						from: EOSIO_FROM_ACCOUNT,
-						to: EOSIO_TO_ACCOUNT,
-						quantity: EOSIO_QUANTITY,
-						memo: '',
+						attestor: EOSIO_DATTESTATION_ATTESTOR,
+						hash: EOSIO_DATTESTATION_HASH
 					},
 					authorization: [
 						{

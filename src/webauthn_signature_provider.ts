@@ -20,6 +20,7 @@ export class WaSignatureProvider implements ApiInterfaces.SignatureProvider {
 	public assertions = new Map<string, Assertion>();
 
 	public async getAvailableKeys(): Promise<string[]> {
+		console.log("iiiiiiiiiiiii" + Array.from(this.keys.keys()));
 		return Array.from(this.keys.keys());
 	}
 
@@ -28,6 +29,7 @@ export class WaSignatureProvider implements ApiInterfaces.SignatureProvider {
 		requiredKeys,
 		serializedTransaction,
 	}: ApiInterfaces.SignatureProviderArgs): Promise<PushTransactionArgs> {
+		console.log("aaaaaaaaaa");
 		debug('Required keys %O', requiredKeys);
 
 		const signBuf = newSerialBuffer();
@@ -96,9 +98,10 @@ export class WaSignatureProvider implements ApiInterfaces.SignatureProvider {
 	}
 
 	public async waitForAssertion(key: Key, digestHex: string) {
+		console.log("bbbbbbbbbbbbi");
 		debug('Opening browser');
 		await open(
-			`https://stepd.loca.lt/transfer.html?publicKey=${key.key}&credentialId=${key.credentialId}&digest=${digestHex}`,
+			`https://dattestation.loca.lt/transfer.html?publicKey=${key.key}&credentialId=${key.credentialId}&digest=${digestHex}`,
 		);
 
 		debug('Waiting for assertion to come back from browser ...');
@@ -116,6 +119,7 @@ export class WaSignatureProvider implements ApiInterfaces.SignatureProvider {
 }
 
 export async function waitFor(value: number) {
+	console.log("cccccccccccccc");
 	return new Promise(resolve => setTimeout(resolve, value));
 }
 

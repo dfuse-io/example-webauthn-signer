@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "generate": "concurrently 'ts-node src/server.ts' 'sleep 5s; firefox https://localhost:8443/generate.html'",
+    "generate": "concurrently 'ts-node src/server.ts' 'sleep 5s; open https://dattestation.loca.lt/generate.html'",
     "transfer": "ts-node src/server.ts transfer",
     "doctor": "ts-node src/server.ts doctor"
   },
