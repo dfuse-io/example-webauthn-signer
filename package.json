@@ -20,7 +20,7 @@
     "@types/node-fetch": "^2.5.4",
     "cbor": "^5.0.1",
     "debug": "^4.1.1",
-    "elliptic": "^6.5.2",
+    "elliptic": "^6.5.4",
     "eosjs": "^21.0.1-rc2",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
