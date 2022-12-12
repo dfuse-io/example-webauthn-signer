@@ -22,7 +22,7 @@
     "debug": "^4.1.1",
     "elliptic": "^6.5.2",
     "eosjs": "^21.0.1-rc2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "node-fetch": "^2.6.0",
     "open": "^7.0.0"
   },
